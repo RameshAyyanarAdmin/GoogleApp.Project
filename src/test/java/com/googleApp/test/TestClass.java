@@ -1,20 +1,19 @@
 package com.googleApp.test;
 
 import org.testng.annotations.*;
-import com.googleApp.driver.Driver;
+import com.googleApp.pages.HomePage;
 import com.googleApp.reports.ExtentReportManager;
 import com.googleApp.reports.Logger;
-import com.googleApp.pages.HomePage;
-import com.googleApp.utilities.ConfigReader;
 
-public class TestClass extends InitializeTest {
+
+public class TestClass extends InitializeTest{
 
 	HomePage homePage;
 	
 	@Test
 	public void testCase1() {
 		try {
-		ExtentReportManager.setExtentTest(ExtentReportManager.report.startTest("Verify the google homepage"));		
+		ExtentReportManager.setExtentTest(ExtentReportManager.report.startTest("Verify the google homepage"));
 		homePage=new HomePage();
 		homePage.homePageTitleValidation();	
 		Logger.logPASS("Validated home page successfully");
