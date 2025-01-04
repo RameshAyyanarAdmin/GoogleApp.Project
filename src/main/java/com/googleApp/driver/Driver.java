@@ -27,7 +27,6 @@ public class Driver {
 			startRemoteExecution();	
 		}
 		DriverManager.setDriver(driver);
-		DriverManager.getDriver().manage().timeouts().implicitlyWait(Constants.implicitWait, TimeUnit.SECONDS);
 		DriverManager.getDriver().get(url);
 		DriverManager.getDriver().manage().deleteAllCookies();
 	}

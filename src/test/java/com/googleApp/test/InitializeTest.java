@@ -1,6 +1,5 @@
 package com.googleApp.test;
 
-
 import java.util.Properties;
 
 import org.testng.annotations.*;
@@ -29,6 +28,7 @@ public class InitializeTest {
 	public static void beforeTestExecution() {
 		ExtentReportManager.initialize();
 		Utilities.config();
+		Utilities.FetchExcelTestData();
 	}
 	
 	@AfterSuite
