@@ -37,5 +37,18 @@ public class TestClass extends InitializeTest{
 			e.printStackTrace();
 		}
 	}
-
+	
+	@Test
+	public void testCase3() {
+		try {
+		ExtentReportManager.setExtentTest(ExtentReportManager.report.startTest("Verify the google search box"));
+		homePage=new HomePage();
+		homePage.searchBoxValidation();
+		Logger.logPASS("Validated search box functionality successfully");
+		}
+		catch(Exception e) {
+			Logger.logFAIL("search box functionality failed");
+			e.printStackTrace();
+		}
+	}
 }

@@ -13,9 +13,44 @@ import org.testng.Assert;
 import com.googleApp.constants.Constants;
 
 public class Utilities {
-
 	public static HashMap<String, String> propHashMap;
+	public static LinkedHashMap<String,LinkedHashMap<String, LinkedHashMap<String, String>>> TestDataCollection;
+	public static ThreadLocal<String> currentClassName = new ThreadLocal<String>();
+	public static ThreadLocal<String> currentTestName = new ThreadLocal<String>();	
+	
+//Getters and setters
 
+//	=========================================================================================================================================================	
+	
+	public static void setConfig(HashMap<String, String> propertyHashMap) {
+		propHashMap = propertyHashMap;
+	}	
+	public static HashMap<String, String> getConfig() {
+		return propHashMap;
+	}		
+	public static void setCurrentClassName(String CurrentClassName) {
+		currentClassName.set(CurrentClassName);
+	}	
+	public static String getCurrentClassName() {
+		return currentClassName.get();
+	}
+	public static void setCurrentTestName(String CurrentTestName) {
+		currentTestName.set(CurrentTestName);
+	}	
+	public static String getCurrentTestName() {
+		return currentTestName.get();
+	}	
+	public static void setTestDataCollection(LinkedHashMap<String,LinkedHashMap<String, LinkedHashMap<String, String>>> sheetCollection) 
+	{
+		TestDataCollection  = new LinkedHashMap<>();
+		TestDataCollection = sheetCollection;
+	}	
+	public static LinkedHashMap<String,LinkedHashMap<String, LinkedHashMap<String, String>>> getTestDataCollection() {
+		return TestDataCollection;
+	}
+	
+//=============================================================================================================================================================	
+	
 	public static void config() {
 		FileReader reader;
 		Properties prop = null;
@@ -34,15 +69,7 @@ public class Utilities {
 			Assert.assertTrue(false,e.getMessage());
 		}
 	}
-	
-	public static void setConfig(HashMap<String, String> propertyHashMap) {
-		propHashMap = propertyHashMap;
-	}
-	
-	public static HashMap<String, String> getConfig() {
-		return propHashMap;
-	}
-
+		
 	public static void FetchExcelTestData() {
 		try 
 		{
@@ -73,7 +100,8 @@ public class Utilities {
 					TableValueCollection.put(rowTestCaseKey, rowValueCollection);
 				}
 				sheetCollection.put(sheetNameKey, TableValueCollection);	
-			}							
+			}
+			setTestDataCollection(sheetCollection);
 		} 
 		catch (Exception e) 
 		{
@@ -81,6 +109,4 @@ public class Utilities {
 			e.printStackTrace();
 		}
 	}
-
-
 }
