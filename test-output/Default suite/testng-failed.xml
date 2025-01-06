@@ -6,10 +6,10 @@
       <class name="com.googleApp.test.TestClass">
         <methods>
           <include name="beforeTest"/>
-          <include name="afterTestExecution"/>
           <include name="beforeTestExecution"/>
+          <include name="afterTestExecution"/>
           <include name="afterTest"/>
-          <include name="testCase2"/>
+          <include name="testCase3"/>
         </methods>
       </class> <!-- com.googleApp.test.TestClass -->
     </classes>
